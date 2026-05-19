@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Musunga's Classic Hub – Mobile hardware, black school shoes & work suits in Lusaka. Order via WhatsApp.">
+  <title>Musunga's Classic Hub | Hardware · Shoes · Workwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0f1e 0%, #0b2f2c 100%);
+      color: #ffffff;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    /* neon glow effect */
+    .glow-text {
+      text-shadow: 0 0 8px #00ffcc, 0 0 12px #00ffaa;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* header – glassmorphism */
+    .navbar {
+      background: rgba(10, 20, 30, 0.65);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 255, 200, 0.3);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(120deg, #aaffdd, #00ffcc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .logo p {
+      font-size: 0.7rem;
+      color: #bbffdd;
+      letter-spacing: 0.5px;
+    }
+    .mobile-badge {
+      background: rgba(0, 255, 200, 0.15);
+      border: 1px solid #00ffcc;
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #00ffcc;
+    }
+    .mobile-badge i {
+      margin-right: 6px;
+    }
+
+    /* hero section – no images */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero .highlight {
+      color: #00ffcc;
+      text-shadow: 0 0 6px #00ffaa;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+      color: #d0f0e8;
+    }
+
+    /* cards grid (no images) */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 3rem 0 1.5rem;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #00ffcc;
+      margin: 12px auto 0;
+      border-radius: 4px;
+      box-shadow: 0 0 8px #00ffcc;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: rgba(15, 30, 35, 0.65);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 255, 200, 0.3);
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: #00ffcc;
+      box-shadow: 0 15px 35px rgba(0, 255, 200, 0.2);
+      background: rgba(0, 30, 35, 0.8);
+    }
+    .card-icon {
+      font-size: 3.2rem;
+      color: #00ffcc;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 6px #00ffaa;
+    }
+    .card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .product-list {
+      list-style: none;
+      text-align: left;
+      margin: 1.5rem 0;
+    }
+    .product-list li {
+      margin: 0.7rem 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .product-list li i {
+      color: #00ffcc;
+      width: 20px;
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.2s;
+      margin-top: 1rem;
+      border: none;
+    }
+    .btn-wa:hover {
+      transform: scale(1.05);
+      background: #128C7E;
+      box-shadow: 0 0 15px #25D366;
+    }
+
+    /* steps section */
+    .steps-wrapper {
+      background: rgba(0, 20, 25, 0.6);
+      backdrop-filter: blur(4px);
+      border-radius: 3rem;
+      padding: 2rem;
+      margin: 3rem 0;
+      border: 1px solid rgba(0, 255, 200, 0.2);
+    }
+    .steps-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .step {
+      background: #0f2a2a;
+      border-radius: 2rem;
+      padding: 1.5rem;
+      text-align: center;
+      width: 200px;
+      transition: 0.2s;
+    }
+    .step:hover {
+      transform: translateY(-5px);
+      border: 1px solid #00ffcc;
+    }
+    .step-num {
+      width: 50px;
+      height: 50px;
+      background: #00ffcc;
+      color: #0a1f1a;
+      font-weight: 800;
+      font-size: 1.6rem;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .location-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0, 255, 200, 0.1);
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      margin-top: 1.5rem;
+      font-weight: 500;
+    }
+
+    /* social & cta */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+    .social-icon {
+      background: #112a2a;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      transition: 0.2s;
+      text-decoration: none;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+    }
+    .social-icon:hover {
+      transform: translateY(-6px) scale(1.05);
+      background: #00ffcc;
+      color: #0a1f1f;
+      box-shadow: 0 0 18px #00ffcc;
+    }
+    .big-wa {
+      background: #25D366;
+      display: inline-flex;
+      gap: 12px;
+      padding: 1rem 2.5rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: white;
+      margin: 1rem 0;
+      transition: 0.2s;
+    }
+    .big-wa:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px #25D366;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(0, 255, 200, 0.2);
+      margin-top: 3rem;
+      font-size: 0.8rem;
+    }
+    @media (max-width: 700px) {
+      .hero h2 { font-size: 1.8rem; }
+      .section-title { font-size: 1.6rem; }
+      .card h3 { font-size: 1.4rem; }
+      .container { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <h1>✦ MUSUNGA'S HUB ✦</h1>
+      <p>hardware · black school shoes · work suits</p>
+    </div>
+    <div class="mobile-badge">
+      <i class="fas fa-truck-fast"></i> mobile seller — Lusaka wide
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <!-- hero without images -->
+    <div class="hero">
+      <h2>Quality goods <span class="highlight">delivered to you</span></h2>
+      <p>No shop? No problem. We bring hardware, school shoes and professional suits straight to your doorstep. Fast, reliable, and affordable.</p>
+    </div>
+
+    <!-- product sections (no images inside) -->
+    <h2 class="section-title">🔥 what we offer</h2>
+    <div class="cards-grid">
+      <!-- hardware card -->
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-tools"></i></div>
+        <h3>Hardware & Tools</h3>
+        <ul class="product-list">
+          <li><i class="fas fa-check-circle"></i> Cement (50kg)</li>
+          <li><i class="fas fa-check-circle"></i> Iron sheets & nails</li>
+          <li><i class="fas fa-check-circle"></i> PVC pipes & fittings</li>
+          <li><i class="fas fa-check-circle"></i> Paints & brushes</li>
+          <li><i class="fas fa-check-circle"></i> Electrical wires & sockets</li>
+          <li><i class="fas fa-check-circle"></i> Wheelbarrows, builders' tools</li>
+        </ul>
+        <a href="https://wa.me/260977126251?text=I%20need%20hardware%20from%20Musunga" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Ask hardware price</a>
+      </div>
+
+      <!-- black school shoes -->
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-shoe-prints"></i></div>
+        <h3>Black School Shoes</h3>
+        <ul class="product-list">
+          <li><i class="fas fa-check-circle"></i> Black lace-up (all sizes)</li>
+          <li><i class="fas fa-check-circle"></i> Velcro shoes (juniors)</li>
+          <li><i class="fas fa-check-circle"></i> Boys' leather boots</li>
+          <li><i class="fas fa-check-circle"></i> Girls' Mary Jane</li>
+          <li><i class="fas fa-check-circle"></i> Sports trainers (PE)</li>
+        </ul>
+        <a href="https://wa.me/260977126251?text=I%20need%20black%20school%20shoes%20from%20Musunga" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Check shoe sizes</a>
+      </div>
+
+      <!-- work suits -->
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Work Suits & Officewear</h3>
+        <ul class="product-list">
+          <li><i class="fas fa-check-circle"></i> Executive 2‑piece suits</li>
+          <li><i class="fas fa-check-circle"></i> Ladies' blazer + skirt/pants</li>
+          <li><i class="fas fa-check-circle"></i> Formal trousers & shirts</li>
+          <li><i class="fas fa-check-circle"></i> Blazers (single/double breasted)</li>
+          <li><i class="fas fa-check-circle"></i> Ties, cufflinks & accessories</li>
+        </ul>
+        <a href="https://wa.me/260977126251?text=I%20need%20work%20suits%20from%20Musunga" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Inquire suit price</a>
+      </div>
+    </div>
+
+    <!-- how to order -->
+    <div class="steps-wrapper">
+      <h3 style="text-align: center; font-size: 1.8rem;">⚡ order in 3 taps</h3>
+      <div class="steps-flex">
+        <div class="step"><div class="step-num">1</div><i class="fab fa-whatsapp fa-2x" style="color:#00ffcc;"></i><p>message on WhatsApp</p></div>
+        <div class="step"><div class="step-num">2</div><i class="fas fa-clipboard-list fa-2x" style="color:#00ffcc;"></i><p>tell your needs (item, size, qty)</p></div>
+        <div class="step"><div class="step-num">3</div><i class="fas fa-truck fa-2x" style="color:#00ffcc;"></i><p>delivery or pickup (Lusaka)</p></div>
+      </div>
+      <div style="text-align: center;">
+        <div class="location-chip">
+          <i class="fas fa-map-marker-alt"></i> inventory: Town Center, Lusaka (no walk‑in shop, but we deliver fast)
+        </div>
+      </div>
+    </div>
+
+    <!-- social media + final whatsapp -->
+    <div style="text-align: center; margin: 2rem 0;">
+      <h3 style="font-size: 1.5rem;">📱 connect with Musunga</h3>
+      <div class="social-links">
+        <a href="https://facebook.com/musungashub" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://tiktok.com/@musungashub" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/260977126251" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <a href="https://wa.me/260977126251?text=I%20want%20to%20order%20from%20Musunga" class="big-wa" target="_blank">
+        <i class="fab fa-whatsapp fa-lg"></i> chat on WhatsApp — 0977 126251
+      </a>
+      <p style="margin-top: 1rem;"><i class="far fa-clock"></i> Mon–Sat: 08:00 – 18:00 | same‑day delivery Lusaka</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><strong>Musunga's Classic Hub</strong> — trusted hardware, black school shoes & work suits. Mobile business serving all Lusaka districts.</p>
+    <p style="margin-top: 0.5rem;">📍 stock hub: Town Center | WhatsApp only: <strong>0977 126251</strong></p>
+    <p style="margin-top: 1rem; font-size: 0.7rem;">© 2025 — designed for clarity & speed</p>
+  </div>
+</footer>
+
+<!-- floating WhatsApp button (optional but nice) -->
+<a href="https://wa.me/260977126251?text=Hello%20Musunga%2C%20I%20need%20assistance" 
+   class="float-wa" target="_blank" rel="noopener" 
+   style="position:fixed; bottom:20px; right:20px; background:#25D366; width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:2rem; box-shadow:0 0 15px #25D366; transition:0.2s; z-index:999; text-decoration:none;">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  // add dynamic hover effect + interactive console greeting (no slider)
+  console.log("Musunga's Classic Hub — neon edition | all WhatsApp → 0977126251");
+  
+  // optional: add a tiny bounce animation on card load
+  const cards = document.querySelectorAll('.card');
+  cards.forEach((card, idx) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, idx * 100);
+  });
+
+  // make all external links safe
+  document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    link.setAttribute('rel', 'noopener noreferrer');
+  });
+</script>
+</body>
+</html>
